@@ -1,0 +1,13 @@
+extracted_images/
+catalogo_360import.pdf
+sample_catalogo.pdf
+catalogo_sample.pdf
+productos_con_imagenes.csv
+MEDIA-*/
+__pycache__/
+*.pyc
+.claude/
+.playwright-mcp/
+.superpowers/
+360import-site.png
+Requerimientos WEB - Productos.csv

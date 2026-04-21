@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & base ───────────────────────────────────────────────────── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Raleway', sans-serif; background: #f9f7f4; }
+
+    /* ── Page ───────────────────────────────────────────────────────────── */
+    .page {
+      width: 210mm;          /* full A4 width, no margins */
+      min-height: 297mm;     /* full A4 height, no margins */
+      display: flex;
+      flex-direction: column;
+      page-break-after: always;
+      background: #f9f7f4;
+    }
+
+    /* ── Page header ────────────────────────────────────────────────────── */
+    .page-header {
+      background: #f0ece4;
+      padding: 11px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #c99229;
+      flex-shrink: 0;
+    }
+    .brand { font-family: 'Cinzel', serif; color: #32523a; font-size: 24px; font-weight: 900; letter-spacing: 2px; }
+    .tagline { color: #897670; font-size: 13px; margin-top: 3px; }
+    .catalog-label { font-family: 'Cinzel', serif; color: #c99229; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-align: right; }
+    .catalog-sub { color: #897670; font-size: 12px; text-align: right; margin-top: 3px; }
+
+    /* ── Category banner ────────────────────────────────────────────────── */
+    .cat-banner {
+      background: #ede8de;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #ddd5c5;
+      border-top: 1px solid #ddd5c5;
+      flex-shrink: 0;
+    }
+    .cat-bar { width: 4px; height: 22px; background: #c99229; border-radius: 2px; flex-shrink: 0; }
+    .cat-name { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: #32523a; text-transform: uppercase; letter-spacing: 2px; }
+    .cat-divider { flex: 1; height: 1px; background: #c5b9af; margin-left: 4px; }
+    .cat-supplier { font-size: 13px; color: #897670; }
+
+    /* ── Product row ────────────────────────────────────────────────────── */
+    .product-row {
+      display: flex;
+      border-bottom: 1px solid #e8e2d8;
+      background: #f9f7f4;
+      flex: 1;
+    }
+    .product-row.alt { background: #f3efe8; }
+
+    .product-img {
+      width: 57mm;            /* ≈ 27% of A4 210mm */
+      background: #ede8de;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-right: 2px solid #e8dfc8;
+      flex-direction: column;
+      gap: 6px;
+      padding: 12px 0;
+    }
+    .product-img img {
+      max-width: 50mm;
+      max-height: 44mm;
+      object-fit: contain;
+    }
+    .placeholder {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: #f0ece4;
+      border: 2px solid #c99229;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #c99229;
+    }
+    .img-label { font-size: 10px; color: #b5a898; }
+
+    .product-info { flex: 1; padding: 12px 18px; display: flex; flex-direction: column; justify-content: center; }
+    .product-name {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #261c17;
+      border-bottom: 1px solid #e2d8c5;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .product-body { display: flex; gap: 14px; }
+    .product-desc { flex: 1.4; }
+    .product-desc p { color: #6b5a52; font-size: 13px; line-height: 1.6; }
+    .product-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .tag-supplier {
+      background: #32523a; color: #f5f3ef;
+      font-size: 11px; padding: 3px 8px; border-radius: 3px; font-weight: 500;
+    }
+    .tag-cat {
+      background: transparent; color: #32523a;
+      font-size: 11px; padding: 3px 8px; border-radius: 3px;
+      border: 1px solid #32523a;
+    }
+    .product-specs { flex: 1; }
+    .specs-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .specs-table thead tr { background: #32523a; }
+    .specs-table thead th { padding: 4px 8px; color: #f5f3ef; text-align: left; font-weight: 500; }
+    .specs-table tbody tr { background: #edeae2; }
+    .specs-table tbody td { padding: 4px 8px; color: #261c17; }
+
+    /* ── Page footer ────────────────────────────────────────────────────── */
+    .page-footer {
+      background: #f0ece4;
+      border-top: 1px solid #ddd5c5;
+      padding: 6px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .footer-text { color: #b5a898; font-size: 12px; }
+    .page-num { color: #c99229; font-size: 13px; font-family: 'Cinzel', serif; }
+
+    /* ── Cover page ─────────────────────────────────────────────────────── */
+    .cover-page { background: #f9f7f4; }
+    .cover-bar-top {
+      background: #32523a;
+      height: 14mm;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 18px;
+      flex-shrink: 0;
+    }
+    .cover-bar-top-text {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: #c99229;
+      letter-spacing: 3px;
+    }
+    .cover-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 30mm;
+      text-align: center;
+    }
+    .cover-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+      color: #c99229;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10mm;
+    }
+    .cover-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 58px;
+      font-weight: 900;
+      color: #32523a;
+      letter-spacing: 10px;
+      line-height: 1.05;
+    }
+    .cover-rule {
+      width: 55mm;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #c99229, transparent);
+      margin: 9mm auto;
+    }
+    .cover-catalog-title {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #c99229;
+      letter-spacing: 5px;
+    }
+    .cover-tagline {
+      font-family: 'Raleway', sans-serif;
+      font-size: 15px;
+      color: #897670;
+      margin-top: 5mm;
+      letter-spacing: 1px;
+    }
+    .cover-country {
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      color: #b5a898;
+      margin-top: 2.5mm;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .cover-footer {
+      flex-shrink: 0;
+      padding: 5mm 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #ddd5c5;
+    }
+    .cover-footer-text { color: #b5a898; font-size: 13px; }
+    .cover-bar-bottom {
+      background: #c99229;
+      height: 5mm;
+      flex-shrink: 0;
+      margin-top: 4mm;
+    }
+
+    /* ── Index page ─────────────────────────────────────────────────────── */
+    .index-content {
+      flex: 1;
+      padding: 12mm 22mm 8mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .index-title {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #32523a;
+      letter-spacing: 5px;
+      text-align: center;
+      margin-bottom: 3mm;
+    }
+    .index-subtitle {
+      font-size: 13px;
+      color: #897670;
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6mm;
+    }
+    .index-rule {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c99229, transparent);
+      margin-bottom: 7mm;
+    }
+    .index-row {
+      display: flex;
+      align-items: baseline;
+      padding: 11px 0;
+      border-bottom: 1px solid #f0ece4;
+    }
+    .index-cat {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #261c17;
+      white-space: nowrap;
+    }
+    .index-leader {
+      flex: 1;
+      border-bottom: 1px dotted #c5b9af;
+      margin: 0 12px;
+      position: relative;
+      top: -4px;
+    }
+    .index-page-num {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      color: #c99229;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     COVER PAGE
+     ══════════════════════════════════════════════════════════════════════ -->
+<div class="page cover-page">
+  <div class="cover-bar-top">
+    <span class="cover-bar-top-text">CATÁLOGO 2026</span>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">Productos Gourmet Italianos</div>
+    <div class="cover-brand">360<br>IMPORT</div>
+    <div class="cover-rule"></div>
+    <div class="cover-catalog-title">CATÁLOGO 2026</div>
+    <div class="cover-tagline">Importadora de Productos Gourmet Italianos</div>
+    <div class="cover-country">República Dominicana</div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-text">360 Import · info@360import.com</span>
+    <span class="cover-footer-text">© 2026</span>
+  </div>
+  <div class="cover-bar-bottom"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     INDEX PAGE
+     ══════════════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div>
+      <div class="brand">360 IMPORT</div>
+      <div class="tagline">Importadora de Productos Gourmet Italianos</div>
+    </div>
+    <div>
+      <div class="catalog-label">CATÁLOGO 2026</div>
+      <div class="catalog-sub">República Dominicana</div>
+    </div>
+  </div>
+
+  <div class="index-content">
+    <div class="index-title">ÍNDICE</div>
+    <div class="index-subtitle">Categorías de productos</div>
+    <div class="index-rule"></div>
+    {% for entry in category_index %}
+    <div class="index-row">
+      <span class="index-cat">{{ entry.name }}</span>
+      <span class="index-leader"></span>
+      <span class="index-page-num">{{ entry.page }}</span>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-text">360 Import · info@360import.com</span>
+    <span class="page-num">Índice</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     CONTENT PAGES
+     ══════════════════════════════════════════════════════════════════════ -->
+{% for page_items in pages %}
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <div class="brand">360 IMPORT</div>
+      <div class="tagline">Importadora de Productos Gourmet Italianos</div>
+    </div>
+    <div>
+      <div class="catalog-label">CATÁLOGO 2026</div>
+      <div class="catalog-sub">República Dominicana</div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  {% for item in page_items %}
+
+    {% if item.show_banner %}
+    <div class="cat-banner">
+      <div class="cat-bar"></div>
+      <span class="cat-name">{{ item.Categoria }}</span>
+      <div class="cat-divider"></div>
+      <span class="cat-supplier">{{ item.Proveedor }}</span>
+    </div>
+    {% endif %}
+
+    <div class="product-row {% if loop.index is even %}alt{% endif %}">
+      <div class="product-img">
+        {% if item.image_data %}
+          <img src="{{ item.image_data }}" alt="{{ item.Producto_Base }}">
+        {% else %}
+          <div class="placeholder">{{ item.initials }}</div>
+          <div class="img-label">Sin imagen</div>
+        {% endif %}
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{ item.Producto }}</div>
+        <div class="product-body">
+          <div class="product-desc">
+            {% if item.Descripción %}
+            <p>{{ item.Descripción }}</p>
+            {% else %}
+            <p style="color:#c5b9af;font-style:italic;">Sin descripción</p>
+            {% endif %}
+            <div class="product-tags">
+              <span class="tag-supplier">{{ item.Proveedor }}</span>
+              <span class="tag-cat">{{ item.Categoria }}</span>
+            </div>
+          </div>
+          <div class="product-specs">
+            <table class="specs-table">
+              <thead><tr><th>Presentación</th><th>Caja</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>{{ item.Presentacion if item.Presentacion else '—' }}</td>
+                  <td>{{ item.Unidades_por_Caja ~ ' un' if item.Unidades_por_Caja else '—' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <span class="footer-text">360 Import · info@360import.com</span>
+    <span class="page-num">Página {{ loop.index }} / {{ total_pages }}</span>
+  </div>
+
+</div>
+{% endfor %}
+
+</body>
+</html>
