@@ -1,13 +1,9 @@
-from __future__ import annotations
-
 import csv
 import re
 import sys
 from pathlib import Path
 
 from rapidfuzz import fuzz, process
-
-from extract_images import should_ignore_extracted_png, should_skip_truncated_xls_jpeg
 
 IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.webp'}
 
@@ -97,6 +93,93 @@ CATEGORY_FALLBACKS: dict[str, str] = {
     'salsa pesto pistacho':    'fotos viander',
 }
 
+# Per-product Granoro pasta image overrides.  Ordered most-specific first so
+# the first matching entry wins.  Each entry is (required_tokens, image_stem).
+GRANORO_PASTA_IMAGE_MAP: list[tuple[list[str], str]] = [
+    # Gluten-free line
+    (['gnocchi', 'gluten'],         'FOTO PASTAS_18'),
+    (['penne',   'gluten'],         'FOTO PASTAS_15'),
+    (['fusilli', 'gluten'],         'FOTO PASTAS_17'),
+    (['lasagna', 'gluten'],         'FOTO PASTAS_16'),
+    (['lasagne', 'gluten'],         'FOTO PASTAS_16'),
+    (['spaghetti', 'gluten'],       'FOTO PASTAS_14'),
+    # Integral / organic (Bio line)
+    (['penne',     'integral'],     'FOTO PASTAS_36'),
+    (['spaghetti', 'integral'],     'FOTO PASTAS_37'),
+    # Shapes exclusive to the Dedicato bronzo line
+    (['calamari'],                  'FOTO PASTAS_38'),
+    (['casereccia'],                'FOTO PASTAS_22'),
+    (['orechiette'],                'FOTO PASTAS_9'),
+    (['orecchiette'],               'FOTO PASTAS_9'),
+    (['nidi', 'pappardelle'],       'FOTO PASTAS_40'),
+    (['nidi', 'papardelle'],        'FOTO PASTAS_40'),
+    # Trafilado al bronzo (Dedicato) — check before generic shapes
+    (['linguine', 'trafilad'],      'FOTO PASTAS_20'),
+    (['linguini', 'trafilad'],      'FOTO PASTAS_20'),
+    (['linguine', 'bronzo'],        'FOTO PASTAS_20'),
+    (['linguini', 'bronzo'],        'FOTO PASTAS_20'),
+    (['rigatoni', 'trafilad'],      'FOTO PASTAS_21'),
+    (['rigatoni', 'bronzo'],        'FOTO PASTAS_21'),
+    (['fusilli',  'trafilad'],      'FOTO PASTAS_24'),
+    (['fusilli',  'bronzo'],        'FOTO PASTAS_24'),
+    (['spaghetti', 'trafilad'],     'FOTO PASTAS_8'),
+    (['spaghetti', 'bronzo'],       'FOTO PASTAS_8'),
+    # Egg pasta (all'uovo / Dedicato)
+    (['tagliolini'],                'FOTO PASTAS_35'),
+    (['fettuccini', 'uovo'],        'FOTO PASTAS_34'),
+    (['fettucini',  'uovo'],        'FOTO PASTAS_34'),
+    (['fettuccini'],                'FOTO PASTAS_34'),
+    (['papardelle', 'uovo'],        'FOTO PASTAS_42'),
+    (['pappardelle', 'uovo'],       'FOTO PASTAS_42'),
+    (['tagliatelle', 'uovo'],       'FOTO PASTAS_5'),
+    (['tagliatelle', 'fettucini'],  'FOTO PASTAS_26'),
+    (['tagliatelle', 'largo'],      'FOTO PASTAS_26'),
+    # Semola / lasagne
+    (['lasagna', 'semola'],         'FOTO PASTAS_39'),
+    (['lasagne', 'semola'],         'FOTO PASTAS_39'),
+    # Standard shapes — ordered by specificity
+    (['mezze', 'penne'],            'FOTO PASTAS_0'),
+    (['mezzi', 'rigatoni'],         'FOTO PASTAS_30'),
+    (['penne', 'rigate'],           'FOTO PASTAS_31'),
+    (['spaghetti', 'ristoranti'],   'FOTO PASTAS_29'),
+    (['spaghetti', 'vermicelloni'], 'FOTO PASTAS_27'),
+    (['spaghetti', 'vermicelli'],   'FOTO PASTAS_28'),
+    (['spaghettini'],               'FOTO PASTAS_4'),
+    (['bucatini'],                  'FOTO PASTAS_2'),
+    (['capellini'],                 'FOTO PASTAS_13'),
+    (['lingue', 'passero'],         'FOTO PASTAS_11'),
+    (['linguine', 'passero'],       'FOTO PASTAS_11'),
+    (['linguine'],                  'FOTO PASTAS_10'),
+    (['cannelloni'],                'FOTO PASTAS_12'),
+    (['conchiglioni'],              'FOTO PASTAS_32'),
+    (['gomiti'],                    'FOTO PASTAS_23'),
+    (['gnocchi', 'patate'],         'FOTO PASTAS_25'),
+    (['gnocchi', 'papas'],          'FOTO PASTAS_25'),
+    (['gnocchi'],                   'FOTO PASTAS_33'),
+    (['rigatoni'],                  'FOTO PASTAS_1'),
+    (['tagliatelle'],               'FOTO PASTAS_26'),
+    (['cous'],                      'FOTO PASTAS_41'),
+    (['pappardelle'],               'FOTO PASTAS_40'),
+    (['papardelle'],                'FOTO PASTAS_42'),
+    (['fusilli'],                   'FOTO PASTAS_24'),
+]
+
+
+def find_granoro_pasta_override(product_text: str, images_dir: Path) -> Path | None:
+    """Return the specific FOTO PASTAS_N image for a Granoro pasta product, or None."""
+    lo = product_text.lower()
+    if 'granoro' not in lo and 'mastromauro' not in lo:
+        return None
+    norm = normalize(product_text)
+    for keywords, stem in GRANORO_PASTA_IMAGE_MAP:
+        if all(kw in norm for kw in keywords):
+            for ext in ('.jpeg', '.jpg', '.png'):
+                p = images_dir / f'{stem}{ext}'
+                if p.exists():
+                    return p
+    return None
+
+
 _SIZE_RE  = re.compile(r'\b\d+\s*(?:g|gr|kg|ml|l|lt|x\s*\d+|pcs|un|libras?)\b', re.I)
 _PUNCT_RE = re.compile(r'[^\w\s]')
 _SPACE_RE = re.compile(r'\s+')
@@ -141,10 +224,6 @@ def build_deduplicated_index(images_dir: Path) -> dict[str, Path]:
             continue
         if p.stem.strip() in EXCLUDED_STEMS:
             continue
-        if should_ignore_extracted_png(p):
-            continue
-        if should_skip_truncated_xls_jpeg(p):
-            continue
         m = _SUFFIX_RE.match(p.stem)
         base = m.group(1).strip() if m else p.stem.strip()
         idx  = int(m.group(2))   if m else -1
@@ -161,7 +240,7 @@ def build_deduplicated_index(images_dir: Path) -> dict[str, Path]:
 
 def find_best_match(
     product_text: str,
-    index: dict,
+    index: dict[str, Path],
     threshold: int,
 ) -> str | None:
     """
@@ -222,6 +301,16 @@ def match_products(
         base      = row.get('Producto_Base', '') or row.get('Producto', '')
         supplier  = row.get('Proveedor', '')
         categoria = row.get('Categoria', '')
+
+        # Pass 0: per-product Granoro pasta image overrides (bypass fuzzy matching)
+        override = find_granoro_pasta_override(f'{base} {supplier}', images_dir)
+        if override:
+            row['Imagenes'] = str(override)
+            matched += 1
+            if verbose:
+                print(f'  GR  {base!r:50s} -> {override.name!r}')
+            continue
+
         # Pass 1: base + supplier only — avoids brand confusion
         # (e.g. "Bonomi savoiardy + BONOMI SPA" should not match "galletas loacker"
         # just because both products share the "galletas" categoria).
