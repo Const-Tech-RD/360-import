@@ -70,6 +70,7 @@ def save_state(state: dict) -> None:
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+@st.cache_data(show_spinner=False)
 def img_b64(path: Path) -> str:
     suffix = path.suffix.lower().lstrip(".")
     if suffix == "jpg":

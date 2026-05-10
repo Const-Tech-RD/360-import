@@ -1,11 +1,11 @@
 {
   "0": {
-    "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "status": "no_image",
+    "image": "FALSE"
   },
   "1": {
-    "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "status": "no_image",
+    "image": "FALSE"
   },
   "2": {
     "status": "approved",
@@ -42,5 +42,629 @@
   "10": {
     "status": "approved",
     "image": "extracted_images/arroz venere Scotti_0.jpeg"
+  },
+  "11": {
+    "status": "approved",
+    "image": "extracted_images/Risotto parmesana_0.jpg"
+  },
+  "12": {
+    "status": "approved",
+    "image": "extracted_images/funghi porcini di biase_0.jpeg"
+  },
+  "13": {
+    "status": "approved",
+    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+  },
+  "14": {
+    "image": "extracted_images/FOTO PASTAS_25.jpeg",
+    "status": "approved"
+  },
+  "15": {
+    "status": "approved",
+    "image": "extracted_images/funghi porcini di biase_0.jpeg"
+  },
+  "16": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "17": {
+    "status": "approved",
+    "image": "extracted_images/funghi porcini di biase_0.jpeg"
+  },
+  "18": {
+    "status": "approved",
+    "image": "extracted_images/bonomi amaretti_0.png"
+  },
+  "19": {
+    "status": "approved",
+    "image": "extracted_images/foto bonomi_0.png"
+  },
+  "20": {
+    "status": "approved",
+    "image": "extracted_images/foto bonomi_0.png"
+  },
+  "21": {
+    "status": "approved",
+    "image": "extracted_images/FOTO-VINAGRE.jpg"
+  },
+  "22": {
+    "image": "extracted_images/PFB20PE500002AMEU (1).png",
+    "status": "approved"
+  },
+  "23": {
+    "image": "extracted_images/PFSBKOG025012AMEU.png",
+    "status": "approved"
+  },
+  "24": {
+    "image": "extracted_images/PFB20EU100012AMEU.png",
+    "status": "approved"
+  },
+  "25": {
+    "image": "extracted_images/ACETO DI MELE BIO DETO 500 ML.png",
+    "status": "approved"
+  },
+  "26": {
+    "status": "approved",
+    "image": "extracted_images/FOTO-VINAGRE.jpg"
+  },
+  "27": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "28": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "29": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "30": {
+    "image": "extracted_images/aceto di vino bianco 1 lt vetro.png",
+    "status": "approved"
+  },
+  "31": {
+    "image": "extracted_images/ACETO DI VINO ROSSO (1).png",
+    "status": "approved"
+  },
+  "35": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "36": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "37": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "38": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "39": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "40": {
+    "status": "approved",
+    "image": "extracted_images/foto provolone dulce_0.png"
+  },
+  "41": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "42": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "43": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "44": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "45": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "46": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "47": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "48": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "49": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "50": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "51": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "52": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "53": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "54": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "55": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "56": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "57": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "58": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "59": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "60": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "61": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "62": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "63": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "64": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "65": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "66": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "67": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "68": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "69": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "70": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "71": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "72": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "73": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "74": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "75": {
+    "status": "approved",
+    "image": "extracted_images/farfalle DC.png"
+  },
+  "76": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "77": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "78": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "79": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "80": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "81": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "82": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "83": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "84": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "85": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "86": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "87": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "88": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "89": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "90": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "91": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "92": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "93": {
+    "image": "FALSE",
+    "status": "approved"
+  },
+  "94": {
+    "image": "FALSE",
+    "status": "approved"
+  },
+  "95": {
+    "status": "approved",
+    "image": "extracted_images/salov foto.png"
+  },
+  "96": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "97": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "98": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "99": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "100": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "101": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "102": {
+    "status": "approved",
+    "image": "extracted_images/Gemignani 250 ml .jpg"
+  },
+  "103": {
+    "status": "approved",
+    "image": "extracted_images/Gemignani 250 ml .jpg"
+  },
+  "104": {
+    "status": "approved",
+    "image": "extracted_images/Gemignani 250 ml .jpg"
+  },
+  "105": {
+    "status": "approved",
+    "image": "extracted_images/foto miel de trufas.jpeg"
+  },
+  "106": {
+    "status": "approved",
+    "image": "extracted_images/fotos viander_0.png"
+  },
+  "107": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "108": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "109": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "110": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "111": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "112": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "113": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "114": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "115": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "116": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "117": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "118": {
+    "status": "approved",
+    "image": "extracted_images/galletas loacker_8.jpeg"
+  },
+  "119": {
+    "status": "approved",
+    "image": "extracted_images/galletas loacker_0.png"
+  },
+  "120": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "121": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "122": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "123": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "124": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "125": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "126": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "127": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "128": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "129": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "130": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "131": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "132": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "133": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "134": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "135": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "136": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "137": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "138": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "139": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "140": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "141": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "142": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "143": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "144": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "145": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "146": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "147": {
+    "status": "approved",
+    "image": "extracted_images/tomates pelados valle del sol_0.jpeg"
+  },
+  "148": {
+    "status": "approved",
+    "image": "extracted_images/tomates pelados la torrente_0.png"
+  },
+  "149": {
+    "status": "approved",
+    "image": "extracted_images/tomates pelados y passata granoro_0.jpeg"
+  },
+  "150": {
+    "status": "approved",
+    "image": "extracted_images/tomates pelados la torrente_0.png"
+  },
+  "151": {
+    "status": "approved",
+    "image": "extracted_images/tomates pelados la torrente_0.png"
+  },
+  "152": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "153": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "154": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "155": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "156": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "157": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "158": {
+    "status": "approved",
+    "image": "extracted_images/harina y semola granoro_0.jpeg"
+  },
+  "159": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "160": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "161": {
+    "status": "approved",
+    "image": "extracted_images/fotos harina_0.png"
+  },
+  "162": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "163": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "164": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "165": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "166": {
+    "status": "approved",
+    "image": "extracted_images/fotos galletas lotus biscoff_0.jpeg"
+  },
+  "167": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "168": {
+    "image": "FALSE",
+    "status": "no_image"
+  },
+  "169": {
+    "image": "FALSE",
+    "status": "no_image"
   }
 }
