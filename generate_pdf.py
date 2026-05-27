@@ -11,6 +11,15 @@ from playwright.async_api import async_playwright
 
 from extract_images import should_ignore_extracted_png, should_skip_truncated_xls_jpeg
 
+from catalog_exclude import filter_catalog_rows_for_export
+from catalog_descriptions import apply_descriptions
+from catalog_ficha_tecnica import apply_ficha_tecnica
+from pdf_link_utils import set_pdf_uri_links_new_window
+
+COVER_LOGO_PDF = Path("assets/images/logo 360 pdf.pdf")
+COVER_LOGO_PNG = Path("assets/images/logo_360_cover.png")
+COVER_LOGO_FALLBACK = Path("assets/images/LOGO 360 IMPORT.PNG")
+
 
 # ── Pure helpers ─────────────────────────────────────────────────────────────
 
@@ -21,11 +30,18 @@ def get_initials(name: str) -> str:
     return ''.join(initials[:3])
 
 
+def normalize_catalog_image_path(image_path: str) -> str:
+    """Normalize separators to forward slashes; CSV may contain Windows backslashes."""
+    if not image_path or image_path == "FALSE":
+        return image_path
+    return Path(str(image_path).replace("\\", "/")).as_posix()
+
+
 def encode_image(image_path: str) -> str | None:
     """Return a base64 data URI for the image, or None if missing/FALSE."""
     if not image_path or image_path == 'FALSE':
         return None
-    p = Path(image_path)
+    p = Path(normalize_catalog_image_path(image_path))
     if not p.exists() or should_ignore_extracted_png(p) or should_skip_truncated_xls_jpeg(p):
         return None
     suffix = p.suffix.lower().lstrip('.')
@@ -33,6 +49,23 @@ def encode_image(image_path: str) -> str | None:
         suffix = 'jpeg'
     data = base64.b64encode(p.read_bytes()).decode()
     return f"data:image/{suffix};base64,{data}"
+
+
+def resolve_cover_logo_path() -> Path | None:
+    """Prefer extracted PNG; fall back to PDF sibling assets."""
+    if COVER_LOGO_PNG.exists():
+        return COVER_LOGO_PNG
+    if COVER_LOGO_FALLBACK.exists():
+        return COVER_LOGO_FALLBACK
+    return None
+
+
+def encode_cover_logo() -> str | None:
+    """Base64 data URI for the catalog cover logo."""
+    path = resolve_cover_logo_path()
+    if not path:
+        return None
+    return encode_image(str(path))
 
 
 def build_pages(products: list[dict], page_size: int = 3) -> list[list[dict]]:
@@ -77,7 +110,12 @@ def render_html(pages: list[list[dict]], template_path: Path) -> str:
     env = Environment(loader=FileSystemLoader(str(template_path.parent)))
     template = env.get_template(template_path.name)
     category_index = build_category_index(pages)
-    return template.render(pages=pages, total_pages=len(pages), category_index=category_index)
+    return template.render(
+        pages=pages,
+        total_pages=len(pages),
+        category_index=category_index,
+        cover_logo_data=encode_cover_logo(),
+    )
 
 
 # ── Playwright PDF ────────────────────────────────────────────────────────────
@@ -109,7 +147,15 @@ def main(
     template_path: Path = Path('catalog_template.html'),
     output_path: Path   = Path('catalogo_360import.pdf'),
 ) -> None:
-    products = load_products(csv_path)
+    products = filter_catalog_rows_for_export(load_products(csv_path))
+    products, desc_report = apply_descriptions(products)
+    if desc_report.applied:
+        print(f"Applied {desc_report.applied} product description(s)")
+    if desc_report.unmatched_keys:
+        print(f"Unmatched description keys: {len(desc_report.unmatched_keys)}")
+    products, ficha_report = apply_ficha_tecnica(products)
+    if ficha_report.applied:
+        print(f"Applied {ficha_report.applied} ficha técnica link(s)")
     print(f"Loaded {len(products)} products")
 
     pages = build_pages(products)
@@ -119,6 +165,9 @@ def main(
     print(f"HTML rendered ({len(html):,} chars)")
 
     asyncio.run(html_to_pdf(html, output_path))
+    n_links = set_pdf_uri_links_new_window(output_path, uri_contains="drive.google.com")
+    if n_links:
+        print(f"PDF links set to open in new window: {n_links}")
     print(f"PDF saved → {output_path}")
 
 

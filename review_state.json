@@ -1,19 +1,19 @@
 {
   "0": {
-    "status": "no_image",
-    "image": "FALSE"
+    "status": "approved",
+    "image": "extracted_images/user_upload/image001__1_.png"
   },
   "1": {
-    "status": "no_image",
-    "image": "FALSE"
+    "status": "approved",
+    "image": "extracted_images/user_upload/image001__3_.png"
   },
   "2": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/image001__5_.png"
   },
   "3": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/image001.jpg"
   },
   "4": {
     "status": "approved",
@@ -21,15 +21,15 @@
   },
   "5": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/image001__2_.png"
   },
   "6": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/image001__1_.jpg"
   },
   "7": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/Scotti_Riso_Basmati_1_kg_x_10.jpeg"
   },
   "8": {
     "status": "approved",
@@ -37,11 +37,11 @@
   },
   "9": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/image001__4_.png"
   },
   "10": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/image001__2_.jpg"
   },
   "11": {
     "status": "approved",
@@ -49,11 +49,11 @@
   },
   "12": {
     "status": "approved",
-    "image": "extracted_images/funghi porcini di biase_0.jpeg"
+    "image": "extracted_images/user_upload/image002.png"
   },
   "13": {
     "status": "approved",
-    "image": "extracted_images/arroz venere Scotti_0.jpeg"
+    "image": "extracted_images/user_upload/image001.png"
   },
   "14": {
     "image": "extracted_images/FOTO PASTAS_25.jpeg",
@@ -65,7 +65,7 @@
   },
   "17": {
     "status": "approved",
-    "image": "extracted_images/funghi porcini di biase_0.jpeg"
+    "image": "extracted_images/user_upload/image001__7_.jpg"
   },
   "18": {
     "status": "approved",
@@ -104,36 +104,36 @@
     "image": "extracted_images/FOTO-VINAGRE.jpg"
   },
   "27": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/Am_vinagre_de_manzana_regular_500_ml_x_12.png",
+    "status": "approved"
   },
   "28": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/Am_vinagre_de_coco_biologico_no_filtrado_500_ml_x_6.png",
+    "status": "approved"
   },
   "29": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/WhatsApp_Image_2026-05-21_at_17.39.35.jpeg",
+    "status": "approved"
   },
   "30": {
     "image": "extracted_images/aceto di vino bianco 1 lt vetro.png",
     "status": "approved"
   },
   "31": {
-    "image": "extracted_images/ACETO DI VINO ROSSO (1).png",
+    "image": "extracted_images/user_upload/aceto_di_vino_rosso_bordolese_500_ml.png",
     "status": "approved"
   },
   "35": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/LATTERIA_SORESINA_PADANO_1_8___8_libras_.jpeg",
+    "status": "approved"
   },
   "36": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/LATTERIA_SORESINA_PADANO_1_16___4_libras_.jpeg",
+    "status": "approved"
   },
   "37": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/LATTERIA_GRANA_PADANO_200G_x_15.png",
+    "status": "approved"
   },
   "38": {
     "image": "FALSE",
@@ -148,11 +148,11 @@
     "image": "extracted_images/farfalle DC.png"
   },
   "93": {
-    "image": "FALSE",
+    "image": "extracted_images/user_upload/FB_Aceite_Extra_Virgen_750_mlx_12___FB_Aceite_Extra_Virgen_500_mlx_12.png",
     "status": "approved"
   },
   "94": {
-    "image": "FALSE",
+    "image": "extracted_images/user_upload/FB_Aceite_Extra_Virgen_750_mlx_12___FB_Aceite_Extra_Virgen_2_mlx_12.png",
     "status": "approved"
   },
   "95": {
@@ -161,7 +161,7 @@
   },
   "102": {
     "status": "approved",
-    "image": "extracted_images/Gemignani 250 ml .jpg"
+    "image": "extracted_images/foto miel de trufas.jpeg"
   },
   "103": {
     "status": "approved",
@@ -169,11 +169,11 @@
   },
   "104": {
     "status": "approved",
-    "image": "extracted_images/Gemignani 250 ml .jpg"
+    "image": "extracted_images/user_upload/image001__7__1.jpg"
   },
   "105": {
     "status": "approved",
-    "image": "extracted_images/foto miel de trufas.jpeg"
+    "image": "extracted_images/user_upload/image001__5_.jpg"
   },
   "106": {
     "status": "approved",
@@ -197,31 +197,31 @@
   },
   "149": {
     "status": "approved",
-    "image": "extracted_images/tomates pelados y passata granoro_0.jpeg"
+    "image": "extracted_images/user_upload/image001__6_.jpg"
   },
   "150": {
     "status": "approved",
-    "image": "extracted_images/tomates pelados la torrente_0.png"
+    "image": "extracted_images/user_upload/image001__8_.jpg"
   },
   "151": {
     "status": "approved",
-    "image": "extracted_images/tomates pelados la torrente_0.png"
+    "image": "extracted_images/user_upload/image001__11_.png"
   },
   "152": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/CROISSANT_CACAO_6pcs_X_12.jpg",
+    "status": "approved"
   },
   "153": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/CROISSANT_CREMA_6pcs_X_12.jpg",
+    "status": "approved"
   },
   "154": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/CROISSANT_ALBICOCCA_6pcs_X_12_-___APRICOT.jpg",
+    "status": "approved"
   },
   "155": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/image001__6_.png",
+    "status": "approved"
   },
   "158": {
     "status": "approved",
@@ -269,23 +269,23 @@
   },
   "57": {
     "status": "approved",
-    "image": "extracted_images\\FOTO PASTAS_32.jpeg"
+    "image": "extracted_images/user_upload/GR._CONCHIGLIONI_g500x12.jpeg"
   },
   "59": {
     "status": "approved",
-    "image": "extracted_images\\FOTO PASTAS_12.jpeg"
+    "image": "extracted_images/user_upload/GR._CANNELLONI_g250x24.jpeg"
   },
   "60": {
     "status": "approved",
-    "image": "extracted_images\\FOTO PASTAS_5.jpeg"
+    "image": "extracted_images/user_upload/GR._TAGLIATELLE_UOVO_g500x12.jpeg"
   },
   "61": {
     "status": "approved",
-    "image": "extracted_images\\FOTO PASTAS_35.jpeg"
+    "image": "extracted_images/user_upload/GR._TAGLIOLINI_UOVO_g500x12.jpeg"
   },
   "62": {
     "status": "approved",
-    "image": "extracted_images\\FOTO PASTAS_34.jpeg"
+    "image": "extracted_images/user_upload/GR._FETTUCCINI_UOVO_g500x12.jpeg"
   },
   "64": {
     "status": "approved",
@@ -389,19 +389,19 @@
   },
   "16": {
     "status": "approved",
-    "image": "extracted_images\\funghi porcini di biase_0.jpeg"
+    "image": "extracted_images/user_upload/image001__4_.jpg"
   },
   "32": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/Villa_Vittorua_vinagre_balsamico_blanco_500_ml_x_12.png",
+    "status": "approved"
   },
   "33": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/grana_padano_queso.jpeg",
+    "status": "approved"
   },
   "34": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/latteria_4kg_1.jpeg",
+    "status": "approved"
   },
   "39": {
     "status": "approved",
@@ -412,128 +412,128 @@
     "image": "extracted_images\\FOTO PASTAS_0.jpeg"
   },
   "56": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/679851ed-cab2-47e2-9079-35692abdefcc.jpeg",
+    "status": "approved"
   },
   "58": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/GR._PACCHERI_g500x12.jpeg",
+    "status": "approved"
   },
   "63": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/GR.NIDI_PAPARDELLE_SEMOLAg500x12.jpeg",
+    "status": "approved"
   },
   "69": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/GR_SPAGHETTI_DONNA_CHIARA_500_GR_X_24.png",
+    "status": "approved"
   },
   "70": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/GR_PENNE_RIGATE_DONNA_CHIARA_500_GR_X_24.png",
+    "status": "approved"
   },
   "71": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/GR_LINGUINI_DONNA_CHIARA_500GR_X_24.png",
+    "status": "approved"
   },
   "72": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/GR_FUSILLI_DONNA_CHIARA_500_GR_X_24.png",
+    "status": "approved"
   },
   "73": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/foto_Chifferi_DC.png",
+    "status": "approved"
   },
   "74": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/GR_NIDI_FETT_DONNA_CHIARA_500_GR_X_24.png",
+    "status": "approved"
   },
   "78": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/image001__10_.png",
+    "status": "approved"
   },
   "91": {
     "status": "approved",
-    "image": "extracted_images\\salov foto.png"
+    "image": "extracted_images/user_upload/image005.png"
   },
   "92": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/ce0e0b99-257f-446f-8c31-55c328142215.png",
+    "status": "approved"
   },
   "96": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/3dce3d82-9a0c-44e5-8d04-393a019d6c1d.png",
+    "status": "approved"
   },
   "97": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/3672ed05-000b-4c6e-bb95-85c340f996ea.jpeg",
+    "status": "approved"
   },
   "98": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/pesto.png",
+    "status": "approved"
   },
   "99": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/cee3b0d1-278e-4ea9-879b-3e84193826d3.png",
+    "status": "approved"
   },
   "100": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/42afc3a2-d141-4251-b74e-6af4a12d1092.jpeg",
+    "status": "approved"
   },
   "101": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/8abec88b-54c9-4fb7-9332-44f69cc72b3a_1.png",
+    "status": "approved"
   },
   "107": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/9c0be3dc-62df-4fa3-8e06-d154ee39871b.png",
+    "status": "approved"
   },
   "108": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/53bace99-04d7-4b09-82ab-27091494e04f.png",
+    "status": "approved"
   },
   "109": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/87431685-1606-4e60-af82-13fdcd25f647.png",
+    "status": "approved"
   },
   "110": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/b6dac403-c2a3-4ea8-ac15-90b1dee900d4.png",
+    "status": "approved"
   },
   "111": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/crema_de_pistacho_viander.jpeg",
+    "status": "approved"
   },
   "112": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/4e1913e6-dd71-416b-afc0-68d7916fd5b0.jpeg",
+    "status": "approved"
   },
   "113": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/b49dfb02-c9c9-4651-aeed-c50ab1281e11.png",
+    "status": "approved"
   },
   "114": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/8f789d43-3cbe-4d78-9e4b-80684c8c0248.png",
+    "status": "approved"
   },
   "115": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/image001__9_.png",
+    "status": "approved"
   },
   "116": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/f656eea5-fd79-4995-b29a-cf4f48e9ff9b.png",
+    "status": "approved"
   },
   "117": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/35e0214d-7209-40e9-bc91-48d1dc574bfa.png",
+    "status": "approved"
   },
   "168": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/lotus_bisc.jpeg",
+    "status": "approved"
   },
   "169": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/lotus_sandwich.png",
+    "status": "approved"
   },
   "120": {
     "image": "extracted_images\\galletas loacker_17.png",
@@ -548,20 +548,20 @@
     "status": "approved"
   },
   "123": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/napolitaner.jpeg",
+    "status": "approved"
   },
   "124": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/101cd064-d413-4c92-8602-5a40d9ff4b32.jpeg",
+    "status": "approved"
   },
   "125": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/916b5abd-bdbf-4bd7-bbac-5f7ca303ebfa.jpeg",
+    "status": "approved"
   },
   "126": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/c1a4e208-79e3-4ebb-9cbf-f02122521037.jpeg",
+    "status": "approved"
   },
   "127": {
     "image": "extracted_images\\galletas loacker_1.png",
@@ -572,8 +572,8 @@
     "status": "approved"
   },
   "129": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/kakao.png",
+    "status": "approved"
   },
   "130": {
     "image": "extracted_images\\galletas loacker_4.png",
@@ -600,8 +600,8 @@
     "status": "approved"
   },
   "136": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/image001__7_.png",
+    "status": "approved"
   },
   "137": {
     "image": "extracted_images\\galletas loacker_18.jpeg",
@@ -628,12 +628,12 @@
     "status": "approved"
   },
   "143": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/c85cdb53-2bd8-43d1-8e6a-1048df821b38.jpeg",
+    "status": "approved"
   },
   "144": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/1890e254-4af0-40fa-972e-a9a34eb33225.jpeg",
+    "status": "approved"
   },
   "145": {
     "image": "extracted_images\\galletas loacker_10.png",
@@ -644,39 +644,39 @@
     "status": "approved"
   },
   "156": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/e2489955-12d6-4e51-b2aa-a5c1dc367b7c.jpeg",
+    "status": "approved"
   },
   "157": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/7ebc39a2-70f4-406e-bc73-8da2b30882d3.jpeg",
+    "status": "approved"
   },
   "159": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/5b69c9fb-a314-4978-9a52-ff73b9357c11.png",
+    "status": "approved"
   },
   "160": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/image001__3_.jpg",
+    "status": "approved"
   },
   "162": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/mollino_dala_pasta.png",
+    "status": "approved"
   },
   "163": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/rimocitana.png",
+    "status": "approved"
   },
   "164": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/image001__8_.png",
+    "status": "approved"
   },
   "165": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/ddc71694-b66d-49d4-9db7-2f9c51dd482d.png",
+    "status": "approved"
   },
   "167": {
-    "image": "FALSE",
-    "status": "no_image"
+    "image": "extracted_images/user_upload/da5ba828-b72c-498c-aca8-5b3996eecac3.jpeg",
+    "status": "approved"
   }
 }

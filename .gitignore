@@ -1,4 +1,5 @@
 extracted_images/
+assets/.gallery_thumbs/
 catalogo_360import.pdf
 sample_catalogo.pdf
 catalogo_sample.pdf
@@ -11,3 +12,12 @@ __pycache__/
 .superpowers/
 360import-site.png
 Requerimientos WEB - Productos.csv
+*.csv
+*.txt
+*.json
+*.yaml
+*.yml
+*.xml
+*.yml
+*.yml
+.venv/

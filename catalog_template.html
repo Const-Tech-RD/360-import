@@ -101,7 +101,13 @@
     }
     .product-body { display: flex; gap: 14px; }
     .product-desc { flex: 1.4; }
-    .product-desc p { color: #6b5a52; font-size: 13px; line-height: 1.6; }
+    .product-desc p {
+      color: #6b5a52;
+      font-size: 13px;
+      line-height: 1.6;
+      max-height: 7.8em;
+      overflow: hidden;
+    }
     .product-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
     .tag-supplier {
       background: #32523a; color: #f5f3ef;
@@ -111,6 +117,18 @@
       background: transparent; color: #32523a;
       font-size: 11px; padding: 3px 8px; border-radius: 3px;
       border: 1px solid #32523a;
+    }
+    .ficha-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 12px;
+      background: #c99229;
+      color: #fff !important;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 3px;
+      letter-spacing: 0.3px;
     }
     .product-specs { flex: 1; }
     .specs-table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -165,6 +183,16 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 10mm;
+    }
+    .cover-logo {
+      margin-bottom: 6mm;
+    }
+    .cover-logo img {
+      max-width: 95mm;
+      max-height: 42mm;
+      width: auto;
+      height: auto;
+      object-fit: contain;
     }
     .cover-brand {
       font-family: 'Cinzel', serif;
@@ -288,7 +316,13 @@
 
   <div class="cover-main">
     <div class="cover-eyebrow">Productos Gourmet Italianos</div>
+    {% if cover_logo_data %}
+    <div class="cover-logo">
+      <img src="{{ cover_logo_data }}" alt="360 Import">
+    </div>
+    {% else %}
     <div class="cover-brand">360<br>IMPORT</div>
+    {% endif %}
     <div class="cover-rule"></div>
     <div class="cover-catalog-title">CATÁLOGO 2026</div>
     <div class="cover-tagline">Importadora de Productos Gourmet Italianos</div>
@@ -381,13 +415,14 @@
           <div class="product-desc">
             {% if item.Descripción %}
             <p>{{ item.Descripción }}</p>
-            {% else %}
-            <p style="color:#c5b9af;font-style:italic;">Sin descripción</p>
             {% endif %}
             <div class="product-tags">
               <span class="tag-supplier">{{ item.Proveedor }}</span>
               <span class="tag-cat">{{ item.Categoria }}</span>
             </div>
+            {% if item.Ficha_Tecnica_URL %}
+            <a class="ficha-btn" href="{{ item.Ficha_Tecnica_URL }}" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank','noopener,noreferrer'); return false;">Ver Ficha Técnica</a>
+            {% endif %}
           </div>
           <div class="product-specs">
             <table class="specs-table">

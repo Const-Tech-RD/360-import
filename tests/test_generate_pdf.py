@@ -66,6 +66,17 @@ def test_encode_image_returns_png_data_uri(tmp_path):
     assert result.startswith('data:image/png;base64,')
 
 
+def test_encode_image_accepts_backslash_separators(tmp_path):
+    """CSV from Windows may use backslashes; normalize so POSIX hosts find the file."""
+    from generate_pdf import encode_image
+    img = tmp_path / "shot.jpg"
+    img.write_bytes(b'\xff\xd8\xff' + b'\x00' * 20 + b'\xff\xd9')
+    win_like = str(img).replace("/", "\\")
+    result = encode_image(win_like)
+    assert result is not None
+    assert result.startswith("data:image/jpeg;base64,")
+
+
 # ── build_pages ───────────────────────────────────────────────────────────────
 
 def make_product(name: str, cat: str) -> dict:
@@ -122,3 +133,13 @@ def test_render_html_contains_product_name(tmp_path):
     assert "Scotti Riso Arborio" in html
     assert "360 IMPORT" in html
     assert "Página 1 / 1" in html
+
+
+def test_render_html_cover_includes_logo_when_available():
+    from generate_pdf import build_pages, encode_cover_logo, render_html
+    if encode_cover_logo() is None:
+        return
+    pages = build_pages([make_product("P1", "Cat")])
+    html = render_html(pages, Path("catalog_template.html"))
+    assert 'class="cover-logo"' in html
+    assert "data:image/" in html
