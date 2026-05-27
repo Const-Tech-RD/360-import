@@ -1,0 +1,5 @@
+<div class="alert {% if ok %}alert-ok{% else %}alert-err{% endif %}">{{ message }}
+{% if ok and pdf_exists %}
+ <a href="/catalog/download" style="margin-left:0.5rem;">Descargar ahora</a>
+{% endif %}
+</div>

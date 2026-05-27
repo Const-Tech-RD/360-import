@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Productos — 360 Import{% endblock %}
+{% block topbar %}
+<header class="topbar">
+  <h1>360 IMPORT — Catálogo</h1>
+  <nav>
+    <a href="/products">Productos</a>
+    <form method="post" action="/logout" style="display:inline;"><button type="submit" class="btn btn-outline btn-sm">Salir</button></form>
+  </nav>
+</header>
+{% endblock %}
+{% block content %}
+<div class="catalog-actions card">
+  <form method="post" action="/catalog/generate" hx-post="/catalog/generate" hx-target="#catalog-status" hx-swap="innerHTML" style="display:inline;">
+    <button type="submit" class="btn btn-gold">Generar PDF</button>
+    <span class="htmx-indicator">Generando…</span>
+  </form>
+  <a href="/catalog/download" class="btn btn-primary">Descargar PDF</a>
+  <a href="/products/new" class="btn btn-outline">+ Nuevo producto</a>
+  <span style="color:#897670;">{{ total }} productos</span>
+</div>
+<div id="catalog-status"></div>
+
+<form class="filters card" method="get" action="/products">
+  <label>Buscar<input type="search" name="q" value="{{ q }}" placeholder="nombre, proveedor…"></label>
+  <label>Categoría
+    <select name="categoria">
+      <option value="">Todas</option>
+      {% for cat in categories %}
+      <option value="{{ cat }}" {% if cat == categoria %}selected{% endif %}>{{ cat }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Imagen
+    <select name="con_imagen">
+      <option value="">Todas</option>
+      <option value="si" {% if con_imagen == 'si' %}selected{% endif %}>Con imagen</option>
+      <option value="no" {% if con_imagen == 'no' %}selected{% endif %}>Sin imagen</option>
+    </select>
+  </label>
+  <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
+<div class="card" style="padding:0; overflow:auto;">
+<table class="products">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Producto</th>
+      <th>Categoría</th>
+      <th>Proveedor</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in products %}
+    <tr id="product-row-{{ p.id }}">
+      <td>
+        {% if p.imagen_path %}
+        <img class="thumb" src="{{ image_url(p.imagen_path) }}" alt="">
+        {% else %}
+        <div class="thumb-empty">—</div>
+        {% endif %}
+      </td>
+      <td>
+        <strong>{{ p.producto }}</strong>
+        {% if p.excluido %}<span style="color:#8b3a3a; font-size:0.75rem;"> (excluido PDF)</span>{% endif %}
+      </td>
+      <td>{{ p.categoria }}</td>
+      <td>{{ p.proveedor }}</td>
+      <td style="white-space:nowrap;">
+        <a href="/products/{{ p.id }}/edit" class="btn btn-outline btn-sm">Editar</a>
+        <button class="btn btn-danger btn-sm"
+          hx-delete="/products/{{ p.id }}"
+          hx-target="#product-row-{{ p.id }}"
+          hx-swap="outerHTML"
+          hx-confirm="¿Eliminar este producto?">Eliminar</button>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="5">No hay productos. <a href="/products/new">Crear uno</a></td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% if pages > 1 %}
+<div class="pagination">
+  {% if page > 1 %}
+  <a class="btn btn-outline btn-sm" href="/products?page={{ page - 1 }}&q={{ q }}&categoria={{ categoria }}&con_imagen={{ con_imagen }}">← Anterior</a>
+  {% endif %}
+  <span>Página {{ page }} / {{ pages }}</span>
+  {% if page < pages %}
+  <a class="btn btn-outline btn-sm" href="/products?page={{ page + 1 }}&q={{ q }}&categoria={{ categoria }}&con_imagen={{ con_imagen }}">Siguiente →</a>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

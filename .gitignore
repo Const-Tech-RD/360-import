@@ -1,4 +1,7 @@
 extracted_images/
+uploads/
+data/catalog.db
+.env
 assets/.gallery_thumbs/
 catalogo_360import.pdf
 sample_catalogo.pdf

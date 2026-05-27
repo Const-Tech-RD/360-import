@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}{% if product %}Editar{% else %}Nuevo{% endif %} producto — 360 Import{% endblock %}
+{% block topbar %}
+<header class="topbar">
+  <h1>360 IMPORT — Catálogo</h1>
+  <nav>
+    <a href="/products">← Productos</a>
+    <form method="post" action="/logout" style="display:inline;"><button type="submit" class="btn btn-outline btn-sm">Salir</button></form>
+  </nav>
+</header>
+{% endblock %}
+{% block content %}
+{% if saved %}
+<div class="alert alert-ok">Cambios guardados.</div>
+{% endif %}
+{% if error %}
+<div class="alert alert-err">{{ error }}</div>
+{% endif %}
+
+<div class="card">
+  <h2 style="margin-top:0;">{% if product %}Editar producto{% else %}Nuevo producto{% endif %}</h2>
+  <form method="post" action="{% if product %}/products/{{ product.id }}/edit{% else %}/products/new{% endif %}">
+    <div class="form-grid">
+      <label class="full">Nombre completo (Producto) *
+        <input name="producto" required value="{{ (form.producto if form else product.producto) if (form or product) else '' }}">
+      </label>
+      <label>Nombre base
+        <input name="producto_base" value="{{ (form.producto_base if form else product.producto_base) if (form or product) else '' }}">
+      </label>
+      <label>Presentación
+        <input name="presentacion" value="{{ (form.presentacion if form else product.presentacion) if (form or product) else '' }}">
+      </label>
+      <label>Unidades por caja
+        <input name="unidades_por_caja" value="{{ (form.unidades_por_caja if form else product.unidades_por_caja) if (form or product) else '' }}">
+      </label>
+      <label>Proveedor
+        <input name="proveedor" value="{{ (form.proveedor if form else product.proveedor) if (form or product) else '' }}">
+      </label>
+      <label>Categoría
+        <input name="categoria" list="cat-list" value="{{ (form.categoria if form else product.categoria) if (form or product) else '' }}">
+        <datalist id="cat-list">
+          {% for c in categories %}<option value="{{ c }}">{% endfor %}
+        </datalist>
+      </label>
+      <label class="full">URL Ficha técnica (Google Drive)
+        <input name="ficha_tecnica_url" type="url" value="{{ (form.ficha_tecnica_url if form else product.ficha_tecnica_url) if (form or product) else '' }}">
+      </label>
+      <label class="full">Descripción
+        <textarea name="descripcion" rows="5">{{ (form.descripcion if form else product.descripcion) if (form or product) else '' }}</textarea>
+      </label>
+      <label class="full" style="display:flex; align-items:center; gap:0.5rem;">
+        <input type="checkbox" name="excluido" {% if (form and form.excluido) or (product and product.excluido) %}checked{% endif %}>
+        Excluir del catálogo PDF
+      </label>
+    </div>
+    <p style="margin-top:1.25rem;">
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <a href="/products" class="btn btn-outline">Cancelar</a>
+    </p>
+  </form>
+</div>
+
+{% if product %}
+<div class="card">
+  <h3 style="margin-top:0;">Imagen del producto</h3>
+  <div id="image-preview">
+    {% include "products/_image_preview.html" %}
+  </div>
+  <form hx-post="/products/{{ product.id }}/image" hx-target="#image-preview" hx-swap="innerHTML" hx-encoding="multipart/form-data" style="margin-top:1rem;">
+    <input type="file" name="file" accept="image/*" required>
+    <button type="submit" class="btn btn-gold btn-sm" style="margin-left:0.5rem;">Subir imagen</button>
+  </form>
+</div>
+{% endif %}
+{% endblock %}

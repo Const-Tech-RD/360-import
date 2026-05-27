@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login — 360 Import</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+  <div class="login-box card">
+    <h1 style="color:#32523a; margin-top:0;">360 IMPORT</h1>
+    <p style="color:#897670;">Panel de catálogo</p>
+    {% if error %}
+    <div class="alert alert-err">{{ error }}</div>
+    {% endif %}
+    <form method="post" action="/login">
+      <label style="display:block; margin-bottom:1rem;">
+        <span style="font-size:0.85rem; color:#897670;">Contraseña</span>
+        <input type="password" name="password" required autofocus style="width:100%; margin-top:0.35rem; padding:0.5rem;">
+      </label>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Entrar</button>
+    </form>
+  </div>
+</body>
+</html>

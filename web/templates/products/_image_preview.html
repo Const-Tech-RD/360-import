@@ -1,0 +1,9 @@
+{% if product.imagen_path %}
+<img src="{{ image_url(product.imagen_path) }}" alt="" style="max-width:280px; max-height:200px; object-fit:contain; background:#ede8de; border-radius:4px; display:block;">
+<button type="button" class="btn btn-danger btn-sm" style="margin-top:0.5rem;"
+  hx-delete="/products/{{ product.id }}/image"
+  hx-target="#image-preview"
+  hx-swap="innerHTML">Quitar imagen</button>
+{% else %}
+<p style="color:#897670; margin:0;">Sin imagen asignada.</p>
+{% endif %}
