@@ -11,15 +11,17 @@ from web.auth import NotAuthenticated
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.gzip import GZipMiddleware
 
-from web.config import ROOT_DIR, UPLOADS_DIR
+from web.config import DATA_DIR, ROOT_DIR, UPLOADS_DIR
 from web.database import init_db
 from web.routes import auth, catalog, products
+
+# Must exist before StaticFiles mount (module import time, before lifespan runs).
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
-    (ROOT_DIR / "data").mkdir(parents=True, exist_ok=True)
     init_db()
     yield
 
